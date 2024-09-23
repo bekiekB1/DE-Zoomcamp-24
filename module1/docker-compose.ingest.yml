@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  ingest_data:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - USER=root
+      - PASSWORD=root
+      - HOST=pgdatabase
+      - PORT=5432
+      - DB=ny_taxi
+      - TB=${TB}
+      - URL=${URL}
+    command: ["--tb", "${TABLE_NAME}", "--url", "${URL}"]
+    networks:
+      - pg-network
+
+networks:
+  pg-network:
+    external: true
+    name: pg-network
