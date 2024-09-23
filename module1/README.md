@@ -228,3 +228,12 @@ variable "gcs_storage_class" {
   default     = "STANDARD"
 }
 ```
+Few Terraform Commands
+```
+terraform fmt # Autoformat 
+terraform init # Intialize
+terraform plan
+terraform apply
+terraform destroy
+```
+

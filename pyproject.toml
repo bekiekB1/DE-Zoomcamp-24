@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "de-zoomcamp-24"
+version = "0.1.0"
+description = "Data Engineering BootCamp Self-study"
+authors = ["BK"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pandas = "^2.2.3"
+sqlalchemy = "^2.0.35"
+pyarrow = "^17.0.0"
+typer = "^0.12.5"
+psycopg2-binary = "^2.9.9"
+
+
+[tool.poetry.group.dev.dependencies]
+ipykernel = "^6.29.5"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
