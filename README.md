@@ -11,5 +11,6 @@ This repo contains homework and notes for the [Data Engineering Zoomcamp](https:
 
 [Module 2: Workflow Orchestration](module2/)
  - Data Ingestion to GCP using Airflow
- - Comming Soon...
+ - [Data Ingestion to Local Postgres with Airflow(Fully Dockerized)](module2/local_ingestion/)
 
+Module 3: Comming soon...

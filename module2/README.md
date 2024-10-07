@@ -1,7 +1,9 @@
 # Workflow Orchestration with Airflow
+
+[Data Ingestion to Local Postgres with Airflow](local_ingestion)
 ## Table of Contents
 * Data Ingestion to GCP using Airflow
-* Data Ingestion to Local Postgres with Airflow
+
 #### Resourses 
 
 [Airflow with Docker Offical Documentation](https://airflow.apache.org/docs/apache-airflow/stable/howto/docker-compose/index.html)
