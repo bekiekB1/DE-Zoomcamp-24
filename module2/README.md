@@ -1,6 +1,7 @@
 # Workflow Orchestration with Airflow
 ## Table of Contents
 * Data Ingestion to GCP using Airflow
+* Data Ingestion to Local Postgres with Airflow
 #### Resourses 
 
 [Airflow with Docker Offical Documentation](https://airflow.apache.org/docs/apache-airflow/stable/howto/docker-compose/index.html)
@@ -15,6 +16,10 @@ mkdir -p module2/airflow && cd $_
 ```
 
 ### Data Ingestion to GCP using Airflow
+
+Overview of Data Pipeline orchestrated with Airflow:
+
+![OverviewDataPipeline](assets/OverviewDataPipeline.png)
 
 #### Fetch docker-compose.yml
 To deploy Airflow on Docker Compose, you should fetch [docker-compose.yml](https://airflow.apache.org/docs/apache-airflow/2.10.2/docker-compose.yaml)
@@ -165,3 +170,8 @@ terraform destroy
 ```
 
 
+### Data Ingestion to Local Postgres using Airflow
+
+Overview of Data Pipeline orchestrated with Airflow:
+
+![DatePipelineLocal](assets/DataPipelineLocal.png)
