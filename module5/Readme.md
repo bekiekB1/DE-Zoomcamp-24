@@ -81,15 +81,15 @@ another_string = spark.sparkContext.parallelize(something)
 another_string.map(lambda a: a.upper()).take(100)
 ```
 
-![image.png](../module5/assets/Pyspark%20132c714848c880089e71fb71006d0475/image.png)
+![image.png](../module5/assets/Pyspark_images/image.png)
 
-![image.png](../module5/assets/Pyspark%20132c714848c880089e71fb71006d0475/image%201.png)
+![image.png](../module5/assets/Pyspark_images/image%201.png)
 
 You can see the JVM sending out a large file. This is the input data being sent to the Spark cluster to be parallelized (i.e. to live in Spark workers’ memory).
 
 Interestingly, you can see new Python processes being created (these are the Python workers we mentioned earlier):
 
-![image.png](../module5/assets/Pyspark%20132c714848c880089e71fb71006d0475/image%202.png)
+![image.png](../module5/assets/Pyspark_images/image%202.png)
 
 Each of those PySpark processes unpickles the data and the code they received from Spark. They execute the `.upper()`
  function on the data, and then serialize the results again into the 
@@ -98,9 +98,9 @@ in Spark workers’ memory.
 
 Finally, Spark sends the result (1kb large) back to our original PySpark process.
 
-![image.png](../module5/assets/Pyspark%20132c714848c880089e71fb71006d0475/image%203.png)
+![image.png](../module5/assets/Pyspark_images/image%203.png)
 
-![image.png](../module5/assets/Pyspark%20132c714848c880089e71fb71006d0475/image%204.png)
+![image.png](../module5/assets/Pyspark_images/image%204.png)
 
 PySpark then deserializes the results and prints out a Python array for you.
 
@@ -186,7 +186,7 @@ df = spark.read.parquet('fhvhv/2021/01/')
 df.printSchema() # Print schema
 ```
 
-![image.png](../module5/assets/Pyspark%20132c714848c880089e71fb71006d0475/image%205.png)
+![image.png](../module5/assets/Pyspark_images/image%205.png)
 
 ```bash
 # Nothing happens, lazy execution
@@ -200,17 +200,17 @@ df.select('pickup_datetime', 'dropoff_datetime', 'PULocationID', 'DOLocationID')
   .filter(df.hvfhs_license_num == 'HV0003').show()
 ```
 
-![image.png](../module5/assets/Pyspark%20132c714848c880089e71fb71006d0475/image%206.png)
+![image.png](../module5/assets/Pyspark_images/image%206.png)
 
 [https://pub.aimind.so/pyspark-everything-you-need-to-know-24f87d12bfe1](https://pub.aimind.so/pyspark-everything-you-need-to-know-24f87d12bfe1)
 
 Spark Architecture: 
 
-![image.png](../module5/assets/Pyspark%20132c714848c880089e71fb71006d0475/image%207.png)
+![image.png](../module5/assets/Pyspark_images/image%207.png)
 
 Transformation vs Action:
 
-![image.png](../module5/assets/Pyspark%20132c714848c880089e71fb71006d0475/image%208.png)
+![image.png](../module5/assets/Pyspark_images/image%208.png)
 
 Transformation(Lazy execution): build a logical execution plan, which Spark optimizes before execution. Transformations are only executed when an action is triggered, allowing Spark to optimize the data processing.
 
@@ -465,9 +465,9 @@ df_result.coalesce(1).write.parquet('data/report/revenue/', mode='overwrite')
 
 ## Groupby
 
-![image.png](../module5/assets/Pyspark%20132c714848c880089e71fb71006d0475/image%209.png)
+![image.png](../module5/assets/Pyspark_images/image%209.png)
 
-![image.png](../module5/assets/Pyspark%20132c714848c880089e71fb71006d0475/image%2010.png)
+![image.png](../module5/assets/Pyspark_images/image%2010.png)
 
 ```bash
 import pyspark
@@ -538,7 +538,7 @@ A regular join in Spark performs a `groupBy` and `merge-sort` to combine dataset
 
 **Condition**: When one dataset is much smaller than the other, Spark can use **broadcast join**. In this case, Spark broadcasts (distributes) the smaller dataset across all executors, allowing each executor to have a local copy of the smaller dataset (e.g., a “zone” table). This significantly improves join efficiency by avoiding costly shuffles and enabling faster lookups.
 
-![image.png](../module5/assets/Pyspark%20132c714848c880089e71fb71006d0475/image%2011.png)
+![image.png](../module5/assets/Pyspark_images/image%2011.png)
 
 ```bash
 df_green_revenue = spark.read.parquet('data/report/revenue/green')
@@ -566,7 +566,7 @@ df_result.drop('LocationID', 'zone').write.parquet('tmp/revenue-zones')
 
 Raw RDDs for SQL querry:
 
-![image.png](../module5/assets/Pyspark%20132c714848c880089e71fb71006d0475/image%2012.png)
+![image.png](../module5/assets/Pyspark_images/image%2012.png)
 
 ```bash
 SELECT 
@@ -660,7 +660,7 @@ df_result.write.parquet('tmp/green-revenue')
 
 Raw RDD Map partition(Useful):
 
-![image.png](../module5/assets/Pyspark%20132c714848c880089e71fb71006d0475/image%2013.png)
+![image.png](../module5/assets/Pyspark_images/image%2013.png)
 
 Allows us to apply map to a partition. 
 
