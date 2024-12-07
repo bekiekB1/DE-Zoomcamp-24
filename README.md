@@ -13,4 +13,6 @@ This repo contains homework and notes for the [Data Engineering Zoomcamp](https:
  - Data Ingestion to GCP using Airflow
  - [Data Ingestion to Local Postgres with Airflow(Fully Dockerized)](module2/local_ingestion/)
 
-Module 3: Comming soon...
+Module 3: Batch Processing
+- Pyspark Setup
+- Pyspark Archetecture and Dataframes
